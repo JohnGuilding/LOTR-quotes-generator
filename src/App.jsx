@@ -1,21 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
 
+import { bearerToken } from './Auth';
 import "./App.css";
 
 const App = () => {
     const [quote, setQuote] = useState([]);
 
-    // Authorization: Bearer your-api-key-123
-    // 47HBzvID930-ogANJVc5
-
-    // axios.get("https://the-one-api.dev/v2/quote/{id}", {
-
-
     const fetchQuote = () => {
         axios.get("https://the-one-api.dev/v2/quote", {
             headers: {
-                Authorization: "Bearer 47HBzvID930-ogANJVc5",
+                Authorization: `Bearer ${bearerToken}`,
             },
         })
             .then((data) => {
