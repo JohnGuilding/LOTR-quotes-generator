@@ -10,12 +10,11 @@ const App = () => {
     const fetchQuote = () => {
         axios.get("https://the-one-api.dev/v2/quote", {
             headers: {
-                Authorization: `Bearer ${bearerToken}`,
+                'Authorization': `Bearer ${bearerToken}`,
             },
         })
             .then((data) => {
                 const randomNumber = Math.floor(Math.random() * 1000);
-                console.log(data.data.docs[randomNumber].dialog);
                 setQuote(data.data.docs[randomNumber].dialog);
             })
             .catch((err) => console.log(err));
